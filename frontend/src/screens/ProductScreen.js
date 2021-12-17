@@ -3,9 +3,13 @@ import { Link } from 'react-router-dom';
 import { Row, Col, Image, ListGroup, Button, Card } from 'react-bootstrap';
 import Rating from '../components/Rating';
 import products from '../products';
+import { useParams } from 'react-router-dom';
 
-function ProductScreen({ match }) {
-  const product = products.find(p => p._id === match.params.id);
+function ProductScreen() {
+  const { id } = useParams();
+  console.log(id);
+  const product = products.find(p => p._id === Number(id));
+  console.log(product);
   return (
     <div>
       <Link to="/" className="btn btn-light my-3">
@@ -31,7 +35,7 @@ function ProductScreen({ match }) {
 
             <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
 
-            <ListGroup.Item>Description: {product.description}</ListGroup.Item>
+            <ListGroup.Item>Description: ${product.description}</ListGroup.Item>
           </ListGroup>
         </Col>
         <Col md={3}>

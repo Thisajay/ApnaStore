@@ -2,14 +2,13 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import Product from '../components/Product';
 import products from '../products';
-
-function h1() {
+function HomeScreen() {
   return (
     <div>
       <h1>Latest Products</h1>
       <Row>
         {products.map(product => (
-          <Col Key={product._id} sm={12} md={6} lg={4} xl={3}>
+          <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
             <Product product={product} />
           </Col>
         ))}
@@ -17,4 +16,4 @@ function h1() {
     </div>
   );
 }
-export default h1;
+export default HomeScreen;
